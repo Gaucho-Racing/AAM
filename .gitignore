@@ -239,8 +239,6 @@ temp/
 .tmp/
 
 # AI/ML specific
-models/
-data/
 *.pkl
 *.pickle
 *.joblib
