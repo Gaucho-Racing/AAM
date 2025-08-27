@@ -1,21 +1,16 @@
 import React from "react";
 import axios from "axios";
-import {
-  BACKEND_URL,
-  SENTINEL_CLIENT_ID,
-  SENTINEL_OAUTH_BASE_URL,
-} from "@/consts/config";
+import { BACKEND_URL } from "@/consts/config";
 import { Card } from "@/components/ui/card";
 import { Loader2, Copy, Check } from "lucide-react";
 import { getAxiosErrorMessage } from "@/lib/axios-error-handler";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { checkCredentials, logout, saveAccessToken } from "@/lib/auth";
+import { useNavigate } from "react-router-dom";
+import { checkCredentials, logout } from "@/lib/auth";
 import { notify } from "@/lib/notify";
 import { OutlineButton } from "@/components/ui/outline-button";
 
 function LaunchConsolePage() {
   const navigate = useNavigate();
-  const [queryParameters] = useSearchParams();
 
   const [sentinelMsg, setSentinelMsg] = React.useState("");
   const [loginLoading, setLoginLoading] = React.useState(true);
@@ -152,11 +147,9 @@ function LaunchConsolePage() {
   const CredentialField = ({
     label,
     value,
-    fieldKey,
   }: {
     label: string;
     value: string;
-    fieldKey: string;
   }) => (
     <div className="mt-4 space-y-2">
       <label className="text-sm font-medium text-neutral-300">{label}</label>
@@ -204,17 +197,14 @@ function LaunchConsolePage() {
             <CredentialField
               label="Access Key ID"
               value={iamCredentials.access_key_id || ""}
-              fieldKey="access_key_id"
             />
             <CredentialField
               label="Secret Access Key"
               value={iamCredentials.secret_access_key || ""}
-              fieldKey="secret_access_key"
             />
             <CredentialField
               label="Session Token"
               value={iamCredentials.session_token || ""}
-              fieldKey="session_token"
             />
 
             <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
