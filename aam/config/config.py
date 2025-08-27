@@ -6,7 +6,7 @@ class Config:
 
     # Server settings
     ENV: str = os.getenv("ENV", "DEV")
-    VERSION: str = "1.0.0"
+    VERSION: str = "1.1.0"
     PORT: int = int(os.getenv("PORT", 7000))
 
     # Database settings
