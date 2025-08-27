@@ -1,20 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { checkCredentials } from "@/lib/auth";
 import Footer from "@/components/Footer";
 import { AuthLoading } from "@/components/AuthLoading";
 import { useUser } from "@/lib/store";
 import Header from "@/components/Header";
-import { Client, initClient } from "@/models/client";
-import { BACKEND_URL } from "@/consts/config";
-import axios from "axios";
-import { notify } from "@/lib/notify";
-import { getAxiosErrorMessage } from "@/lib/axios-error-handler";
-import { OutlineButton } from "@/components/ui/outline-button";
-import { Plus } from "lucide-react";
-import { NoProfilesCard } from "@/components/NoProfilesCard";
-import { NoExpiredProfilesCard } from "@/components/NoExpiredProfilesCard";
-import { ProfileCard } from "@/components/ProfileCard";
 
 function App() {
   const navigate = useNavigate();
